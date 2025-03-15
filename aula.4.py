@@ -21,12 +21,16 @@ def check_winner():
     for i in range(3):
         if states[i][0] == states[i][1] == states[i][2] != 0:
             return states[i][0]
+            # Verifica vitória na mesma linha, 0 igual a nada, 1 igual a X e 2 igual a O
         if states[0][i] == states[1][i] == states[2][i] != 0:
             return states[0][i]
+            # Verifica vitória na mesma coluna, 0 igual a nada, 1 igual a X e 2 igual a O
     if states[0][0] == states[1][1] == states[2][2] != 0:
         return states[0][0]
+        # Verifica vitória na diagonal principal (esq > dir), 0 igual a nada, 1 igual a X e 2 igual a O
     if states[0][2] == states[1][1] == states[2][0] != 0:
         return states[0][2]
+        # Verifica vitória na diagonal secundária (dir > esq), 0 igual a nada, 1 igual a X e 2 igual a O 
     return 0
 def reset_game():
     global player, states
